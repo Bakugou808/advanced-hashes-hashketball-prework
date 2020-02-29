@@ -45,6 +45,7 @@ def most_points_scored
       end 
     }
   }
+  puts player_name
   player_name
 end 
 
