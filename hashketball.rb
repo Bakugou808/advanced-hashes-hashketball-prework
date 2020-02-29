@@ -35,11 +35,11 @@ def winning_team
   game_hash.map {|team, team_hash|
   
     if team == :home 
-      team_hash[:players].select {|player_hash|
+      team_hash[:players].each {|player_hash|
         home_points += player_hash[:points]
       }
     else
-      team_hash[:players].select {|player_hash| 
+      team_hash[:players].each {|player_hash| 
         away_points += player_hash[:points] 
       }
   }
