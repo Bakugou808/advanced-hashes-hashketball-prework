@@ -36,9 +36,11 @@ def most_points_scored
   game_hash.map {|team, team_hash| 
     team_hash.map{|attribute, attribute_data|
       if attribute = :players 
-        if attribute_data[:points] > most_points
-          most_points = attribute_data[:points] 
-        end 
+        attribute_data.map {|player_hash|
+          if player_hash[:points] > most_points
+            most_points = player_hash[:points] 
+          end
+        }
       end 
     }
   }
