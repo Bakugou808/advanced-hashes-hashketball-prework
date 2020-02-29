@@ -43,7 +43,7 @@ def winning_team
         away_points += player_hash[:points] 
       }
   }
-  [home_points,away_points].max
+  [home_points, away_points].max
 end 
 
 def most_points_scored
