@@ -28,6 +28,24 @@ def game_hash
   hash 
 end 
 
+def winning_team
+  home_points = 0 
+  away_points = 0 
+  
+  game_hash.map {|team, team_hash|
+  
+    if team == :home 
+      team_hash[:players].select {|player_hash|
+        home_points += player_hash[:points]
+      }
+    else
+      team_hash[:players].select {|player_hash| 
+        away_points += player_hash[:points] 
+      }
+  }
+  
+end 
+
 def most_points_scored
   player_name = ""
   most_points = 0 
