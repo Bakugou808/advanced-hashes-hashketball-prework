@@ -29,7 +29,21 @@ def game_hash
   hash 
 end 
 
-
+def most_points_scored
+  player_name = ""
+  most_points = 0 
+  
+  game_hash.map {|team, team_hash| 
+    team_hash.map{|attribute, attribute_data|
+      if attribute = :players 
+        if attribute_data[:points] > most_points
+          most_points = attribute_data[:points] 
+        end 
+      end 
+    }
+  }
+  most_points
+end 
 
 def num_points_scored(player_name)
   points_scored = 0 
