@@ -31,7 +31,22 @@ end
 def long_name_steals_a_ton?
   longest_name = player_with_longest_name
   
+  player_name_with_most_steals = ""
+  most_steals = 0 
   
+  game_hash.map {|team, team_hash| 
+    team_hash.map{|attribute, attribute_data|
+      if attribute == :players 
+        attribute_data.each {|player_hash|
+          if player_hash[:steals] > most_steals
+            most_steals = player_hash[:steals]
+            player_name = player_hash[:player_name]
+          end
+        }
+      end 
+    }
+  }
+  longest_name == player_name_with_most_steals
 end 
 
 def player_with_longest_name 
