@@ -38,7 +38,8 @@ def most_points_scored
       if attribute = :players 
         attribute_data.map {|player_hash|
           if player_hash[:points] > most_points
-            most_points = player_hash[:points] 
+            most_points = player_hash[:points]
+            player_name = player_hash[:player_name]
           end
         }
       end 
