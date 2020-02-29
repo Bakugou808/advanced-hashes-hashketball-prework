@@ -42,6 +42,7 @@ def winning_team
       team_hash[:players].each {|player_hash| 
         away_points += player_hash[:points] 
       }
+    end 
   }
   [home_points, away_points].max
 end 
